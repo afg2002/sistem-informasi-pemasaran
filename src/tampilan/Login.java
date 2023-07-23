@@ -148,11 +148,11 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = stat.executeQuery();
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Berhasil Login");
-                menuUtama mn = new menuUtama();
+                MenuUtama mn = new MenuUtama();
                 mn.setVisible(true);
                 this.dispose();
                
-                awalLogin al = new awalLogin();
+                AwalLogin al = new AwalLogin();
                 al.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(null, "Username atau password salah");

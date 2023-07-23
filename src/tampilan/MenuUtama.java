@@ -6,17 +6,19 @@ package tampilan;
 
 import laporan.laporandatapartnership;
 import laporan.laporandatapemasaran;
+import laporan.laporandatapembayaran;
+import laporan.laporandatapelanggan;
 
 /**
  *
  * @author afgha
  */
-public class menuUtama extends javax.swing.JFrame {
+public class MenuUtama extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuUtama
      */
-    public menuUtama() {
+    public MenuUtama() {
         initComponents();
     }
 
@@ -31,14 +33,20 @@ public class menuUtama extends javax.swing.JFrame {
 
         bDataPartnership = new javax.swing.JButton();
         bDataPemasaran = new javax.swing.JButton();
-        bLaporanDataPartner = new javax.swing.JButton();
+        bLaporanDataPartnership = new javax.swing.JButton();
         bLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bLaporanDataPem = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        bPelanggan = new javax.swing.JButton();
+        bPembayaran = new javax.swing.JButton();
+        bLaporanDataPelanggan = new javax.swing.JButton();
+        bLaporanDataPembayaran = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        bDataPartnership.setBackground(new java.awt.Color(102, 102, 255));
         bDataPartnership.setText("Data Partnership");
         bDataPartnership.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +54,7 @@ public class menuUtama extends javax.swing.JFrame {
             }
         });
 
+        bDataPemasaran.setBackground(new java.awt.Color(102, 102, 255));
         bDataPemasaran.setText("Data Pemasaran");
         bDataPemasaran.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,13 +62,15 @@ public class menuUtama extends javax.swing.JFrame {
             }
         });
 
-        bLaporanDataPartner.setText("Laporan Data Partnership");
-        bLaporanDataPartner.addActionListener(new java.awt.event.ActionListener() {
+        bLaporanDataPartnership.setBackground(new java.awt.Color(153, 255, 153));
+        bLaporanDataPartnership.setText("Laporan Data Partnership");
+        bLaporanDataPartnership.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLaporanDataPartnerActionPerformed(evt);
+                bLaporanDataPartnershipActionPerformed(evt);
             }
         });
 
+        bLogout.setBackground(new java.awt.Color(255, 102, 102));
         bLogout.setText("Logout");
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,14 +78,15 @@ public class menuUtama extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sistem Informasi Pemasaran");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cilor Mantan");
 
+        bLaporanDataPem.setBackground(new java.awt.Color(153, 255, 153));
         bLaporanDataPem.setText("Laporan Data Pemasaran");
         bLaporanDataPem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,42 +94,106 @@ public class menuUtama extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/laporan/logo (1).jpg"))); // NOI18N
+
+        bPelanggan.setBackground(new java.awt.Color(102, 102, 255));
+        bPelanggan.setText("Data Pelanggan");
+        bPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPelangganActionPerformed(evt);
+            }
+        });
+
+        bPembayaran.setBackground(new java.awt.Color(102, 102, 255));
+        bPembayaran.setText("Data Pembayaran");
+        bPembayaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPembayaranActionPerformed(evt);
+            }
+        });
+
+        bLaporanDataPelanggan.setBackground(new java.awt.Color(153, 255, 153));
+        bLaporanDataPelanggan.setText("Laporan Data Pelanggan");
+        bLaporanDataPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLaporanDataPelangganActionPerformed(evt);
+            }
+        });
+
+        bLaporanDataPembayaran.setBackground(new java.awt.Color(153, 255, 153));
+        bLaporanDataPembayaran.setText("Laporan Data Pembayaran");
+        bLaporanDataPembayaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLaporanDataPembayaranActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bDataPartnership, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bDataPemasaran, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bLaporanDataPartner, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bLaporanDataPem, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bDataPemasaran, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(bLaporanDataPartnership, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bLaporanDataPem, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bLaporanDataPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bLaporanDataPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bDataPartnership, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bDataPemasaran, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLaporanDataPartner, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLaporanDataPem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(0, 166, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bDataPartnership, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bDataPemasaran, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bLaporanDataPem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bLaporanDataPartnership, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bLaporanDataPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bLaporanDataPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel3)))
+                .addGap(0, 96, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,24 +204,44 @@ public class menuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_bLogoutActionPerformed
 
     private void bDataPartnershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDataPartnershipActionPerformed
-        dataPartnership dp = new dataPartnership();
+        DataPartnership dp = new DataPartnership();
         dp.setVisible(true);
     }//GEN-LAST:event_bDataPartnershipActionPerformed
 
     private void bDataPemasaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDataPemasaranActionPerformed
-        dataPemasaran dp = new dataPemasaran();
+        DataPemasaran dp = new DataPemasaran();
         dp.setVisible(true);
     }//GEN-LAST:event_bDataPemasaranActionPerformed
 
-    private void bLaporanDataPartnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLaporanDataPartnerActionPerformed
+    private void bLaporanDataPartnershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLaporanDataPartnershipActionPerformed
         laporandatapartnership ldps = new laporandatapartnership();
         ldps.setVisible(true);
-    }//GEN-LAST:event_bLaporanDataPartnerActionPerformed
+    }//GEN-LAST:event_bLaporanDataPartnershipActionPerformed
 
     private void bLaporanDataPemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLaporanDataPemActionPerformed
         laporandatapemasaran ldpm = new laporandatapemasaran();
         ldpm.setVisible(true);
     }//GEN-LAST:event_bLaporanDataPemActionPerformed
+
+    private void bPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPelangganActionPerformed
+        DataPelanggan dp = new DataPelanggan();
+        dp.setVisible(true);
+    }//GEN-LAST:event_bPelangganActionPerformed
+
+    private void bPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPembayaranActionPerformed
+        DataPembayaran dp = new DataPembayaran();
+        dp.setVisible(true);
+    }//GEN-LAST:event_bPembayaranActionPerformed
+
+    private void bLaporanDataPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLaporanDataPelangganActionPerformed
+       laporandatapelanggan ldp = new laporandatapelanggan();
+       ldp.setVisible(true);
+    }//GEN-LAST:event_bLaporanDataPelangganActionPerformed
+
+    private void bLaporanDataPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLaporanDataPembayaranActionPerformed
+       laporandatapembayaran ldp = new laporandatapembayaran();
+       ldp.setVisible(true);
+    }//GEN-LAST:event_bLaporanDataPembayaranActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,21 +260,27 @@ public class menuUtama extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menuUtama().setVisible(true);
+                new MenuUtama().setVisible(true);
             }
         });
     }
@@ -186,10 +288,15 @@ public class menuUtama extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bDataPartnership;
     private javax.swing.JButton bDataPemasaran;
-    private javax.swing.JButton bLaporanDataPartner;
+    private javax.swing.JButton bLaporanDataPartnership;
+    private javax.swing.JButton bLaporanDataPelanggan;
     private javax.swing.JButton bLaporanDataPem;
+    private javax.swing.JButton bLaporanDataPembayaran;
     private javax.swing.JButton bLogout;
+    private javax.swing.JButton bPelanggan;
+    private javax.swing.JButton bPembayaran;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

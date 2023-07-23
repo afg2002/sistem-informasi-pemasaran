@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 23, 2023 at 05:12 AM
+-- Generation Time: Jul 23, 2023 at 09:53 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -70,6 +70,33 @@ INSERT INTO `partnership` (`id_mitra_kerja`, `nama_manajemen_pemasaran`, `telepo
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `id_pelanggan` int NOT NULL,
+  `nama_pelanggan` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `alamat` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telepon` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `jenis_kelamin` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat`, `telepon`, `email`, `jenis_kelamin`, `tanggal_lahir`) VALUES
+(1, 'Budi Santoso', 'Jl. Merdeka No. 123', '081234567890', 'budi@example.com', 'Laki-laki', '1990-05-15'),
+(2, 'Ani Indriani', 'Jl. Pahlawan No. 45', '082345678901', 'ani@example.com', 'Perempuan', '1995-09-20'),
+(3, 'Agus Wahyudi', 'Jl. Proklamasi No. 78', '085678901234', 'agus@example.com', 'Laki-laki', '1988-12-10'),
+(4, 'Rini Fitriani', 'Jl. Diponegoro No. 56', '087890123456', 'rini@example.com', 'Perempuan', '1992-07-25'),
+(5, 'Afghan Eka P', 'Jl.Bambu', '085156283645', 'afghanep@gmail.com', 'Laki-laki', '2002-03-19');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pemasaran`
 --
 
@@ -93,6 +120,31 @@ INSERT INTO `pemasaran` (`id_mitra_kerja`, `jenis_layanan`, `nama_brand`, `perio
 (1001, 'test', 'test', 'test', '2023-07-06', '1', '1', 1, 'test	'),
 (1002, 'testa', 'testa', 'testa', '2023-07-20', '12', '11', 111, 'test');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembayaran`
+--
+
+CREATE TABLE `pembayaran` (
+  `id_pembayaran` int NOT NULL,
+  `id_pelanggan` int NOT NULL,
+  `jumlah_bayar` int NOT NULL,
+  `kembalian` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_pelanggan`, `jumlah_bayar`, `kembalian`) VALUES
+(1, 4, 85000, 10000),
+(2, 1, 50000, 10000),
+(3, 2, 75000, 20000),
+(4, 3, 100000, 5000),
+(5, 1, 120000, 15000),
+(6, 4, 85000, 10000);
+
 --
 -- Indexes for dumped tables
 --
@@ -110,10 +162,23 @@ ALTER TABLE `partnership`
   ADD PRIMARY KEY (`id_mitra_kerja`);
 
 --
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id_pelanggan`);
+
+--
 -- Indexes for table `pemasaran`
 --
 ALTER TABLE `pemasaran`
   ADD KEY `FK_pemasaran_partnership` (`id_mitra_kerja`);
+
+--
+-- Indexes for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD PRIMARY KEY (`id_pembayaran`),
+  ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -126,6 +191,18 @@ ALTER TABLE `partnership`
   MODIFY `id_mitra_kerja` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1009;
 
 --
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `id_pelanggan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id_pembayaran` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -134,6 +211,12 @@ ALTER TABLE `partnership`
 --
 ALTER TABLE `pemasaran`
   ADD CONSTRAINT `FK_pemasaran_partnership` FOREIGN KEY (`id_mitra_kerja`) REFERENCES `partnership` (`id_mitra_kerja`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD CONSTRAINT `ID Pelanggan` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
